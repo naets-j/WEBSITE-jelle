@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supportersclub Jelle Naets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <ul>
+            <a href="index.html">
+              <img src="images/logo-white.png" alt="logo" />
+            </a>
+
+            <li>
+              <a href="index.html">Supportersclub Jelle Naets </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="papa.html">Papa</a>
+            </li>
+            <li>
+              <a href="agenda.html">Agenda</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+            <li>
+              <a class="btn" href="blog.html">
+                <i class="fa-solid fa-comments"></i> Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Hamburger Button -->
+        <button class="hamburger-button">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </button>
+        <div class="mobile-menu">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="papa.html">Papa</a>
+            </li>
+            <li>
+              <a href="agenda.html">Agenda</a>
+            </li>
+            <li>
+              <a href="contact.html" #>Contact</a>
+            </li>
+            <li>
+              <a class="btn" href="blog.html">
+                <i class="fa-solid fa-comments"></i> Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Editor Galerij -->
+
+    <section>
+      <style>
+        h1 {
+          color: #ff6600;
+        }
+        .gallery-section {
+          margin-bottom: 40px;
+          border: 1px dashed #ccc;
+          padding: 20px;
+          border-radius: 8px;
+        }
+        .gallery-section h2 {
+          margin-top: 0;
+          color: var(--primary-color);
+        }
+        .file-input-container {
+          margin-bottom: 20px;
+          text-align: center;
+        }
+        .custom-file-upload {
+          border: 2px dashed var(--primary-color);
+          padding: 10px 20px;
+          cursor: pointer;
+          border-radius: 5px;
+          color: var(--primary-color);
+          font-weight: bold;
+          transition: background-color 0.3s ease;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+        .custom-file-upload:hover {
+          background-color: rgba(255, 102, 0, 0.1);
+        }
+        input[type="file"] {
+          display: none;
+        }
+        .copy-button {
+          display: none;
+          margin-top: 15px;
+          padding: 10px 20px;
+          background-color: #ff6600; /* Oranje van het logo */
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-weight: bold;
+          width: 100%;
+        }
+        .gallery-container {
+          column-count: 3;
+          column-gap: 15px;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          margin-top: 20px;
+        }
+        .gallery-item {
+          display: inline-block;
+          width: 100%;
+          margin-bottom: 15px;
+          break-inside: avoid-column;
+        }
+        .gallery-item img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 800px) {
+          .gallery-container {
+            column-count: 2;
+          }
+        }
+        @media (max-width: 500px) {
+          .gallery-container {
+            column-count: 1;
+          }
+        }
+      </style>
+    </section>
+
+    <section class="editor-only">
+      <div class="container-sm">
+        <div class="editor-only">
+          <h1 class="editor-only text-xxl">Galerij Beheer</h1>
+          <p>
+            Upload foto's en voeg eventueel extra foto's toe. Kopieer vervolgens
+            de gegenereerde code naar het respectievelijke HTML-bestand.
+          </p>
+
+          <div class="gallery-section">
+            <h2>Galerij Papa</h2>
+            <div class="file-input-container">
+              <label for="file-input-papa" class="custom-file-upload">
+                Upload foto's Galerij Papa 📸
+              </label>
+              <input
+                type="file"
+                id="file-input-papa"
+                multiple
+                accept="image/*"
+              />
+
+              <span id="add-photos-container-papa" class="add-photos-container">
+                <label for="add-input-papa" class="custom-add-photos">
+                  Voeg extra foto's toe ➕
+                </label>
+                <input
+                  type="file"
+                  id="add-input-papa"
+                  multiple
+                  accept="image/*"
+                />
+              </span>
+            </div>
+            <div class="gallery-container" id="gallery-papa-preview"></div>
+            <button class="copy-button" id="copy-button-papa">
+              Kopieer code voor papa-galerij.html
+            </button>
+          </div>
+
+          <div class="gallery-section">
+            <h2>Galerij Jelle</h2>
+            <div class="file-input-container">
+              <label for="file-input-jelle" class="custom-file-upload">
+                Upload foto's Galerij Jelle 📸
+              </label>
+              <input
+                type="file"
+                id="file-input-jelle"
+                multiple
+                accept="image/*"
+              />
+
+              <span
+                id="add-photos-container-jelle"
+                class="add-photos-container"
+              >
+                <label for="add-input-jelle" class="custom-add-photos">
+                  Voeg extra foto's toe ➕
+                </label>
+                <input
+                  type="file"
+                  id="add-input-jelle"
+                  multiple
+                  accept="image/*"
+                />
+              </span>
+            </div>
+            <div class="gallery-container" id="gallery-jelle-preview"></div>
+            <button class="copy-button" id="copy-button-jelle">
+              Kopieer code voor jelle-galerij.html
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editor Agenda-->
+
+    <section>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Editor - Supportersclub Jelle Naets</title>
+      <link rel="stylesheet" href="style.css" />
+    </section>
+
+    <section>
+      <main class="main-content">
+        <h1 class="editor-only text-xxl">Agenda Beheer</h1>
+
+        <form id="event-form">
+          <label for="date">Datum:</label>
+          <input type="date" id="date" />
+
+          <label for="time">Start uur:</label>
+          <input type="time" id="time" />
+
+          <label for="location">Locatie:</label>
+          <input type="text" id="location" />
+
+          <label for="type">Type wedstrijd:</label>
+          <input type="text" id="type" />
+
+          <label for="link">Link naar organisatie:</label>
+          <input type="url" id="link" />
+
+          <button type="submit">Item toevoegen</button>
+        </form>
+
+        <hr />
+
+        <h2>Bestaande items</h2>
+        <ul id="event-list"></ul>
+      </main>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const form = document.getElementById("event-form");
+          const eventList = document.getElementById("event-list");
+          let events = JSON.parse(localStorage.getItem("events")) || [];
+
+          const saveEvents = () => {
+            localStorage.setItem("events", JSON.stringify(events));
+          };
+
+          const renderEvents = () => {
+            eventList.innerHTML = "";
+            events.forEach((event, index) => {
+              const li = document.createElement("li");
+              // Weergave op de beheerpagina mag de lege velden wel tonen voor overzicht
+              li.innerHTML = `
+                            <span>${event.date || "Geen datum"} - ${
+                event.time || "Geen tijd"
+              } - ${event.location || "Geen locatie"}</span>
+                            <div>
+                                <button class="edit-button" data-index="${index}">Bewerk</button>
+                                <button class="delete-button" data-index="${index}">Verwijder</button>
+                            </div>
+                        `;
+              eventList.appendChild(li);
+            });
+          };
+
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const newEvent = {
+              date: document.getElementById("date").value,
+              time: document.getElementById("time").value,
+              location: document.getElementById("location").value,
+              type: document.getElementById("type").value,
+              link: document.getElementById("link").value,
+            };
+            events.push(newEvent);
+            saveEvents();
+            renderEvents();
+            form.reset();
+          });
+
+          eventList.addEventListener("click", (e) => {
+            const index = e.target.dataset.index;
+            if (e.target.classList.contains("delete-button")) {
+              events.splice(index, 1);
+              saveEvents();
+              renderEvents();
+            } else if (e.target.classList.contains("edit-button")) {
+              const eventToEdit = events[index];
+              document.getElementById("date").value = eventToEdit.date;
+              document.getElementById("time").value = eventToEdit.time;
+              document.getElementById("location").value = eventToEdit.location;
+              document.getElementById("type").value = eventToEdit.type;
+              document.getElementById("link").value = eventToEdit.link;
+
+              events.splice(index, 1);
+              saveEvents();
+              renderEvents();
+            }
+          });
+
+          renderEvents();
+        });
+      </script>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer bg-black">
+      <div class="footer-grid">
+        <div>
+          <a href="https://www.instagram.com/jelle_naets/" target="_blank">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+              width="30"
+              height="30"
+            />
+          </a>
+        </div>
+        <div>
+          <ul>
+            <a
+              href="https://www.ktt.be/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><h4>TEAM KTT</h4></a
+            >
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <a href="index.html"><h4>HOME</h4></a>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <a href="contact.html"><h4>CONTACT</h4></a>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="js/main.js"></script>
+</html>

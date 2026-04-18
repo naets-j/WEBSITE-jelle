@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supportersclub Jelle Naets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <ul>
+            <a href="index.html">
+              <img src="images/logo-white.png" alt="logo" />
+            </a>
+
+            <li>
+              <a href="index.html">Supportersclub Jelle Naets </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="papa.html">Papa</a>
+            </li>
+            <li>
+              <a href="agenda.html">Agenda</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+            <li>
+              <a class="btn" href="blog.html">
+                <i class="fa-solid fa-comments"></i> Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Hamburger Button -->
+        <button class="hamburger-button">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </button>
+        <div class="mobile-menu">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="papa.html">Papa</a>
+            </li>
+            <li>
+              <a href="agenda.html">Agenda</a>
+            </li>
+            <li>
+              <a href="contact.html" #>Contact</a>
+            </li>
+            <li>
+              <a class="btn" href="blog.html">
+                <i class="fa-solid fa-comments"></i> Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- agenda weergave -->
+
+    <section>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Agenda - Supportersclub Jelle Naets</title>
+      <link rel="stylesheet" href="style.css" />
+    </section>
+    <section class="agenda">
+      <main class="main-content">
+        <h1 class="agenda-heading text-xxl">Wedstrijd agenda</h1>
+        <div id="calendar-container"></div>
+      </main>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const calendarContainer =
+            document.getElementById("calendar-container");
+
+          const loadEvents = () => {
+            const events = JSON.parse(localStorage.getItem("events")) || [];
+            calendarContainer.innerHTML = "";
+            if (events.length === 0) {
+              calendarContainer.innerHTML = "<p>Geen geplande wedstrijden.</p>";
+              return;
+            }
+
+            events.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            events.forEach((event) => {
+              const eventDiv = document.createElement("div");
+              eventDiv.classList.add("event-item");
+
+              let eventDetailsHtml = "";
+
+              // Voeg Datum en Tijd toe met flexbox opmaak
+              if (event.date || event.time) {
+                eventDetailsHtml += `<div class="date-time-flex">`;
+                if (event.date) {
+                  eventDetailsHtml += `<span><strong>Datum:</strong> ${event.date}</span>`;
+                }
+                if (event.time) {
+                  eventDetailsHtml += `<span><strong>Tijd:</strong> ${event.time}</span>`;
+                }
+                eventDetailsHtml += `</div>`;
+              }
+
+              // Voeg overige velden alleen toe als ze niet leeg zijn
+              if (event.location) {
+                eventDetailsHtml += `<div class="event-detail-row"><strong>Locatie:</strong> ${event.location}</div>`;
+              }
+              if (event.type) {
+                eventDetailsHtml += `<div class="event-detail-row"><strong>Wedstrijd:</strong> ${event.type}</div>`;
+              }
+
+              // Link wordt alleen weergegeven als er een link is
+              const eventLinkHtml = event.link
+                ? `<a href="${event.link}" target="_blank" class="event-link">Organisatie bekijken</a>`
+                : "";
+
+              eventDiv.innerHTML = `
+                            <div class="event-details">
+                                ${eventDetailsHtml}
+                            </div>
+                            ${eventLinkHtml}
+                        `;
+
+              calendarContainer.appendChild(eventDiv);
+            });
+          };
+
+          loadEvents();
+        });
+      </script>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-black">
+      <div class="footer-grid">
+        <div>
+          <a href="https://www.instagram.com/jelle_naets/" target="_blank">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+              width="30"
+              height="30"
+            />
+          </a>
+        </div>
+        <div>
+          <ul>
+            <a
+              href="https://www.ktt.be/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><h4>TEAM KTT</h4></a
+            >
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <a href="index.html"><h4>HOME</h4></a>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <a href="contact.html"><h4>CONTACT</h4></a>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="js/main.js"></script>
+</html>
