@@ -541,6 +541,15 @@
 
     <script src="js/main.js"></script>
     <script>
+      // Probeer automatisch .jpeg als .jpg niet gevonden wordt
+      document.querySelectorAll(".gallery-item img").forEach((img) => {
+        img.onerror = function () {
+          if (this.src.endsWith(".jpg")) {
+            this.src = this.src.replace(".jpg", ".jpeg");
+          }
+        };
+      });
+
       // Bouw de lijst van afbeeldingen automatisch op vanuit de galerij
       const images = Array.from(document.querySelectorAll(".gallery-item img"));
       const imagesArray = images.map((img) => img.src);
