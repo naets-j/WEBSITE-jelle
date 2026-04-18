@@ -102,6 +102,30 @@
         border: none;
       }
 
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9998;
+        background-color: #f7942a;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.3s ease;
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #e0811e;
+      }
+
       @media (max-width: 768px) {
         .gallery-container {
           column-count: 2;
@@ -422,6 +446,15 @@
       </div>
     </section>
 
+    <!-- Scroll naar boven knop -->
+    <button
+      id="scrollTopBtn"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      title="Naar boven"
+    >
+      &#8679;
+    </button>
+
     <!-- Modal (vergroot foto) -->
     <div id="myModal">
       <button class="modal-close" onclick="closeModal()">&#10005;</button>
@@ -470,6 +503,16 @@
 
     <script src="js/main.js"></script>
     <script>
+      // Scroll naar boven knop tonen/verbergen
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          scrollBtn.style.display = "flex";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      });
+
       // Probeer automatisch .jpeg als .jpg niet gevonden wordt
       document.querySelectorAll(".gallery-item img").forEach((img) => {
         img.onerror = function () {
